@@ -78,7 +78,7 @@ namespace SnowBoardShopProject
 
         private void SaveOrderbutton1_Click(object sender, EventArgs e)
         {
-            using ( var db = new SnowBoardShopContext())
+            using  ( var db = new SnowBoardShopContext())
             {
                 
                 int price = int.Parse(PricetextBox1.Text);

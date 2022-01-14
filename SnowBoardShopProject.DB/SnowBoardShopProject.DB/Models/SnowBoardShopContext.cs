@@ -74,8 +74,6 @@ namespace SnowBoardShopProject.DB.Models
 
                 entity.Property(e => e.OrderDate).HasColumnType("datetime");
 
-                entity.Property(e => e.ProductName).HasMaxLength(50);
-
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.CustomerId)
@@ -93,12 +91,6 @@ namespace SnowBoardShopProject.DB.Models
                 entity.Property(e => e.Quantity).HasDefaultValueSql("((1))");
 
                 entity.Property(e => e.UnitPrice).HasColumnType("money");
-
-                entity.HasOne(d => d.Order)
-                    .WithMany(p => p.OrderDetails)
-                    .HasForeignKey(d => d.OrderId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_OrderDetails_Orders");
 
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.OrderDetails)

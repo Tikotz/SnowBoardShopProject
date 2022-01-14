@@ -64,7 +64,6 @@
             // 
             this.QuantitycomboBox1.FormattingEnabled = true;
             this.QuantitycomboBox1.Items.AddRange(new object[] {
-            "0",
             "1",
             "2"});
             this.QuantitycomboBox1.Location = new System.Drawing.Point(200, 154);

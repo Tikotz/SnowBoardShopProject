@@ -23,9 +23,19 @@ namespace SnowBoardShopProject
             using (var db = new SnowBoardShopContext())
             {
                 var client = db.Clients.Where(c => c.Id == LoginForm.ThisClient.Id).FirstOrDefault();
+                var orders = client.Orders.Select(o => o.OrderId).ToList();
 
-                dataGridView1.DataSource = db.OrderDetails.Select(od => od).ToList();
-                dataGridView1.ReadOnly = true;
+                try
+                {
+                    dataGridView1.DataSource = db.OrderDetails.Where(c => c.OrderId == orders.FirstOrDefault()).Select(od => od).ToList();
+                    dataGridView1.ReadOnly = true;
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("You still didnt order anything... Go make an order first");
+                    
+                }
 
                 
             }

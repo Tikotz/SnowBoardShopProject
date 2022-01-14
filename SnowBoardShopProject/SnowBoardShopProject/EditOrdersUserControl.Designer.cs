@@ -35,6 +35,7 @@
             this.OrderIdtextBox1 = new System.Windows.Forms.TextBox();
             this.OrderIdlabel1 = new System.Windows.Forms.Label();
             this.Editbutton1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -99,6 +100,14 @@
             this.Editbutton1.UseVisualStyleBackColor = true;
             this.Editbutton1.Click += new System.EventHandler(this.Editbutton1_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1398, 675);
+            this.panel1.TabIndex = 6;
+            // 
             // EditOrdersUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -109,6 +118,7 @@
             this.Controls.Add(this.Removebutton1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panel1);
             this.Name = "EditOrdersUserControl";
             this.Size = new System.Drawing.Size(1398, 675);
             this.Load += new System.EventHandler(this.EditOrdersUserControl_Load);
@@ -127,5 +137,6 @@
         private System.Windows.Forms.TextBox OrderIdtextBox1;
         private System.Windows.Forms.Label OrderIdlabel1;
         private System.Windows.Forms.Button Editbutton1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

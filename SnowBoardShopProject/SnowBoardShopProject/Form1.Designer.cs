@@ -86,8 +86,8 @@
             this.clientsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.profileToolStripMenuItem});
             this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
-            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(80, 29);
-            this.clientsToolStripMenuItem.Text = "Clients";
+            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(77, 29);
+            this.clientsToolStripMenuItem.Text = "Home";
             // 
             // profileToolStripMenuItem
             // 
@@ -105,27 +105,27 @@
             this.orderListToolStripMenuItem,
             this.orderDetailsToolStripMenuItem});
             this.myOrdersToolStripMenuItem.Name = "myOrdersToolStripMenuItem";
-            this.myOrdersToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.myOrdersToolStripMenuItem.Size = new System.Drawing.Size(267, 34);
             this.myOrdersToolStripMenuItem.Text = "My Orders";
             // 
             // orderListToolStripMenuItem
             // 
             this.orderListToolStripMenuItem.Name = "orderListToolStripMenuItem";
-            this.orderListToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.orderListToolStripMenuItem.Size = new System.Drawing.Size(199, 34);
             this.orderListToolStripMenuItem.Text = "Orders List";
             this.orderListToolStripMenuItem.Click += new System.EventHandler(this.orderListToolStripMenuItem_Click);
             // 
             // orderDetailsToolStripMenuItem
             // 
             this.orderDetailsToolStripMenuItem.Name = "orderDetailsToolStripMenuItem";
-            this.orderDetailsToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.orderDetailsToolStripMenuItem.Size = new System.Drawing.Size(199, 34);
             this.orderDetailsToolStripMenuItem.Text = "Edit Order";
             this.orderDetailsToolStripMenuItem.Click += new System.EventHandler(this.orderDetailsToolStripMenuItem_Click);
             // 
             // myAccountDetailsToolStripMenuItem
             // 
             this.myAccountDetailsToolStripMenuItem.Name = "myAccountDetailsToolStripMenuItem";
-            this.myAccountDetailsToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.myAccountDetailsToolStripMenuItem.Size = new System.Drawing.Size(267, 34);
             this.myAccountDetailsToolStripMenuItem.Text = "My Account Details";
             this.myAccountDetailsToolStripMenuItem.Click += new System.EventHandler(this.myAccountDetailsToolStripMenuItem_Click);
             // 

@@ -31,6 +31,9 @@ namespace SnowBoardShopProject
             {
                 var client = db.Clients.Where(c => c.UserName == UsernametextBox2.Text && c.Password == PasswordtextBox1.Text)
                     .Select(c => c).FirstOrDefault();
+
+                // new User(cart, budget)
+                // User.decreaseBufget(int) 
                 
 
                 if (client != null)

@@ -39,7 +39,8 @@ namespace SnowBoardShopProject.DB.Models
         {
             string pattern = @"^\d+$";
             return Regex.IsMatch(num, pattern);
-
         }
+
+        
     }
 }

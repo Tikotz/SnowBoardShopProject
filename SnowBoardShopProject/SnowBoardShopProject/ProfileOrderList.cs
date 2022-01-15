@@ -49,7 +49,7 @@ namespace SnowBoardShopProject.Models
         {
             using(var db = new SnowBoardShopContext())
             {
-                var client = db.Clients.Where(c => c.Id == LoginForm.ThisClient.Id).FirstOrDefault();
+                var client = db.Clients.Where(c => c.Id == LoginForm.thisUser.GetID()).FirstOrDefault();
 
                 var query = db.Orders.Where(c => c.CustomerId == client.Id).Select(c => c).ToList();
                 dataGridView1.DataSource = query;

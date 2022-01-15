@@ -8,6 +8,7 @@ namespace SnowBoardShopProject.DB.Models
 {
     public partial class Client
     {
+        
         public Client()
         {
             Orders = new HashSet<Order>();
@@ -25,6 +26,7 @@ namespace SnowBoardShopProject.DB.Models
 
         public virtual ICollection<Order> Orders { get; set; }
 
+      
         public static bool IsEmailValid(string mail)
         {
             string pattern = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";

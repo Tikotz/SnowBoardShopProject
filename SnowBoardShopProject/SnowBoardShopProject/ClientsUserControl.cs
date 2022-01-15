@@ -23,7 +23,7 @@ namespace SnowBoardShopProject
 
         public static bool IsHide { get; set; }
 
-        public event Action<Clients> clientadded;
+        public event Action<Client> clientadded;
         public ClientsUserControl()
         {
             InitializeComponent();
@@ -106,10 +106,10 @@ namespace SnowBoardShopProject
         {
             using (var db = new SnowBoardShopContext())
             {
-                lblMessegeTxt.Text = "";
-                if (Clients.IsEmailValid(EmailtextBox6.Text) && Clients.IsFNameValid(FirstNametextBox3.Text + " " + LastNametextBox4.Text) && Clients.IsDecimal(PhoneNumbertextBox5.Text))
+
+                if (Client.IsEmailValid(EmailtextBox6.Text) && Client.IsFNameValid(FirstNametextBox3.Text + " " + LastNametextBox4.Text) && Client.IsDecimal(PhoneNumbertextBox5.Text))
                 {
-                    
+
                     newClient.FirstName = FirstNametextBox3.Text;
                     newClient.LastName = LastNametextBox4.Text;
                     newClient.PhoneNumber = Convert.ToInt32(PhoneNumbertextBox5.Text);
@@ -123,26 +123,22 @@ namespace SnowBoardShopProject
                 }
                 else
                 {
-                    if (!Clients.IsEmailValid(EmailtextBox6.Text))
+                    if (!Client.IsEmailValid(EmailtextBox6.Text))
                     {
                         lblMessegeTxt.Text = "Email is not valid";
                         return;
                     }
-                    if (!Clients.IsFNameValid(FirstNametextBox3.Text + " " + LastNametextBox4.Text))
+                    if (!Client.IsFNameValid(FirstNametextBox3.Text + " " + LastNametextBox4.Text))
                     {
                         lblMessegeTxt.Text = "Youre first name OR last name is not valid";
                         return;
                     }
                     lblMessegeTxt.Text = "one or more of the following information is not valid";
+
+                    db.SaveChanges();
+                    this.Hide();
+                    IsHide = true;
                 }
-                db.SaveChanges();
-                this.Hide();
-                IsHide = true;
-
-
-
-
-
             }
         }
     }

@@ -68,7 +68,7 @@
             this.Removebutton1.Name = "Removebutton1";
             this.Removebutton1.Size = new System.Drawing.Size(139, 34);
             this.Removebutton1.TabIndex = 2;
-            this.Removebutton1.Text = "Cencel Order";
+            this.Removebutton1.Text = "Cancel Order";
             this.Removebutton1.UseVisualStyleBackColor = true;
             this.Removebutton1.Click += new System.EventHandler(this.Removebutton1_Click);
             // 

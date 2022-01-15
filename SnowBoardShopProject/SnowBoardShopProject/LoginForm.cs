@@ -1,4 +1,5 @@
-﻿using SnowBoardShopProject.DB.Models;
+﻿using SnowBoardShopProject.DB;
+using SnowBoardShopProject.DB.Models;
 using SnowBoardShopProject.Models;
 using System;
 using System.Collections.Generic;
@@ -14,11 +15,12 @@ namespace SnowBoardShopProject
 {
     public partial class LoginForm : Form
     {
+        public static User thisUser { get; set; }
         public LoginForm()
         {
             InitializeComponent();
         }
-        public static Client ThisClient { get; set; }
+        
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -29,34 +31,19 @@ namespace SnowBoardShopProject
         {
             using (var db = new SnowBoardShopContext())
             {
-                var client = db.Clients.Where(c => c.UserName == UsernametextBox2.Text && c.Password == PasswordtextBox1.Text)
-                    .Select(c => c).FirstOrDefault();
-
-                // new User(cart, budget)
-                // User.decreaseBufget(int) 
                 
-
-                if (client != null)
+                thisUser = new User(UsernametextBox2.Text,PasswordtextBox1.Text);
+                if (thisUser.Initialize())
                 {
-                    //client.IsLogin = "true";
-                    ThisClient = client;
-                    //ThisClient.IsLogin = "true";
-                    Form1 form = new Form1();
-                    form.ShowDialog();
-                    db.SaveChanges();
-                    this.Dispose();
-                    
-                }
-                var clientDetails = db.Clients.Where(c => c.UserName == UsernametextBox2.Text && c.Password == PasswordtextBox1.Text)
-                    .Select(c => c).ToList();
-
-                
-
-                if (client == null)
-                {
-                    ErrorLogin.Text = "Somthing went wrong try again :(";
+                    ErrorLogin.Text = "User does not exist";
                     ErrorLogin.Visible = true;
                 }
+                thisUser.Login();
+                
+                Form1 form = new Form1();
+                form.ShowDialog();
+                db.SaveChanges();
+                this.Dispose();
                 
             }
         }

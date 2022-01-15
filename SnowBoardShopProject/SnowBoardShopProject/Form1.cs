@@ -38,7 +38,7 @@ namespace SnowBoardShopProject
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            DbChanges.ChangeIsLogin(LoginForm.ThisClient);
+            
         }
 
         private void Form1_Leave(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace SnowBoardShopProject
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             
-            DbChanges.ChangeIsLogin(LoginForm.ThisClient);
+            DbChanges.ChangeIsLogin(LoginForm.thisUser.GetInfo());
 
             var text = "Bye Bye have a nice day !";
             var caption = "Exit";

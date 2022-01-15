@@ -22,7 +22,9 @@ namespace SnowBoardShopProject.Models
         {
             using (var db = new SnowBoardShopContext())
             {
-                dataGridView1.DataSource = db.Clients.Where(a => a.Id == LoginForm.ThisClient.Id).Select(a => a).ToList();
+                List<object> list = new List<object>();
+                list.Add(LoginForm.thisUser.GetInfo());
+                dataGridView1.DataSource = list;
             }
         }
 

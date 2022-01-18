@@ -56,7 +56,7 @@ namespace SnowBoardShopProject.DB
                 }
                 return false;
             }
-            
+
         }
         public string GetFullName()
         {
@@ -102,7 +102,7 @@ namespace SnowBoardShopProject.DB
             try
             {
                 return this.DbUser.Orders.ToList();
-                
+
             }
             catch (Exception)
             {
@@ -149,6 +149,17 @@ namespace SnowBoardShopProject.DB
             {
                 return false;
             }
+        }
+
+        public static Client GetInfo(int id)
+        {
+            using (var db = new SnowBoardShopContext())
+            {
+                ThisClient = db.Clients.Where(c => c.Id == id).Select(c => c).FirstOrDefault();
+                return ThisClient;
+            }
+
+
         }
     }
 }

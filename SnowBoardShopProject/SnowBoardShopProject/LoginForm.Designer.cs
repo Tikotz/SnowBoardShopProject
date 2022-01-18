@@ -135,6 +135,7 @@
             this.PasswordtextBox1.Name = "PasswordtextBox1";
             this.PasswordtextBox1.Size = new System.Drawing.Size(150, 24);
             this.PasswordtextBox1.TabIndex = 1;
+            this.PasswordtextBox1.UseSystemPasswordChar = true;
             // 
             // label2
             // 

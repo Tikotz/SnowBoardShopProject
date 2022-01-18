@@ -51,7 +51,7 @@ namespace SnowBoardShopProject
             
             DbChanges.ChangeIsLogin(User.ThisClient.GetInfo());
 
-            var text = $"Bye Bye {User.ThisClient.FirstName} {User.ThisClient.LastName}/n keep Ride in style !";
+            var text = $"Bye Bye {User.ThisClient.FirstName} {User.ThisClient.LastName}\n keep Ride in style !";
             var caption = "Exit";
             var botton = MessageBoxButtons.OK;
             MessageBox.Show(text, caption, botton);

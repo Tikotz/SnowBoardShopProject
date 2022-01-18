@@ -118,11 +118,13 @@ namespace SnowBoardShopProject
                             
                             MessageBox.Show("purchase succssesfully");
                             LoginForm.thisUser.Save();
+                            db.SaveChanges();
                         }
                         using (var db3 = new SnowBoardShopContext())
                         {
                             LoginForm.thisUser.AddOrder(newOrder);
                             LoginForm.thisUser.Save();
+                            db.SaveChanges();
                         }
                     }
                 }

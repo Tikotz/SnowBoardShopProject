@@ -16,11 +16,15 @@ namespace SnowBoardShopProject
     public partial class LoginForm : Form
     {
         public static User thisUser { get; set; }
+        public static User theAdmin { get; set; }
+
+        public static Client ThisDbClient { get; set; } =new Client();
+
         public LoginForm()
         {
             InitializeComponent();
         }
-        
+
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -31,20 +35,31 @@ namespace SnowBoardShopProject
         {
             using (var db = new SnowBoardShopContext())
             {
-                
-                thisUser = new User(UsernametextBox2.Text,PasswordtextBox1.Text);
-                if (thisUser.Initialize())
+
+                thisUser = new User(UsernametextBox2.Text, PasswordtextBox1.Text);
+                if (!thisUser.Initialize())
                 {
                     ErrorLogin.Text = "User does not exist";
                     ErrorLogin.Visible = true;
                 }
-                thisUser.Login();
-                
-                Form1 form = new Form1();
-                form.ShowDialog();
-                db.SaveChanges();
-                this.Dispose();
-                
+                else
+                {
+                    thisUser.Login();
+
+                    Form1 form = new Form1();
+                    using (var db2 = new SnowBoardShopContext())
+                    {
+                        // Intialize user and apply found values to the main state of the class .
+                        var DbUser = db2.Clients.Where(c => c.UserName == UsernametextBox2.Text && c.Password == PasswordtextBox1.Text).Select(c => c).FirstOrDefault();
+                        ThisDbClient = DbUser;
+                        User.ThisClient = ThisDbClient;
+                    }
+                    form.ShowDialog();
+                    db.SaveChanges();
+                    this.Dispose();
+
+                }
+
             }
         }
 
@@ -54,7 +69,7 @@ namespace SnowBoardShopProject
             panel1.Controls.Add(clientUserControl);
             clientUserControl.Dock = DockStyle.Fill;
             clientUserControl.BringToFront();
-            this.Size = new System.Drawing.Size(1200,703);
+            this.Size = new System.Drawing.Size(1200, 703);
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
@@ -65,9 +80,9 @@ namespace SnowBoardShopProject
 
         private void LoginForm_Activated(object sender, EventArgs e)
         {
-            
-                this.Size = new System.Drawing.Size(528,731);
-            
+
+            this.Size = new System.Drawing.Size(528, 731);
+
         }
 
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)

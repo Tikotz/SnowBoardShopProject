@@ -1,4 +1,5 @@
-﻿using SnowBoardShopProject.DB.Models;
+﻿using SnowBoardShopProject.DB;
+using SnowBoardShopProject.DB.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,7 @@ namespace SnowBoardShopProject.Models
 
         private void Loginbutton1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -31,13 +32,13 @@ namespace SnowBoardShopProject.Models
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-         
-            
+
+
         }
 
         private void SaveBudget_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -47,18 +48,21 @@ namespace SnowBoardShopProject.Models
 
         private void ProfileOrderList_Load(object sender, EventArgs e)
         {
-            using(var db = new SnowBoardShopContext())
+            using (var db = new SnowBoardShopContext())
             {
                 var client = db.Clients.Where(c => c.Id == LoginForm.thisUser.GetID()).FirstOrDefault();
 
-                var query = db.Orders.Where(c => c.CustomerId == client.Id).Select(c => c).ToList();
-                dataGridView1.DataSource = query;
-                
+                if (User.IsAdmin(LoginForm.ThisDbClient))
+                {
+                    var qur = db.Orders.Select(o => o).ToList();
+                    dataGridView1.DataSource = qur;
+                }
+                else
+                {
+                    var query = db.Orders.Where(c => c.CustomerId == client.Id).Select(c => c).ToList();
+                    dataGridView1.DataSource = query;
 
-                
-
-
-                //var query = db.Orders.Join(db.Clients, order => order.CustomerId, client => client.Id, order => order.CustomerName);
+                }
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using SnowBoardShopProject.DB.Models;
+﻿using SnowBoardShopProject.DB;
+using SnowBoardShopProject.DB.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,15 +23,33 @@ namespace SnowBoardShopProject.Models
         {
             using (var db = new SnowBoardShopContext())
             {
-                List<object> list = new List<object>();
-                list.Add(LoginForm.thisUser.GetInfo());
-                dataGridView1.DataSource = list;
+                if (User.IsAdmin(LoginForm.ThisDbClient))
+                {
+                    var qur = db.Clients.Select(o => o).ToList();
+                    dataGridView1.DataSource = qur;
+                    dataGridView1.EndEdit();
+                }
+                else
+                {
+                    List<object> list = new List<object>();
+                    list.Add(LoginForm.thisUser.GetInfo());
+                    dataGridView1.DataSource = list;
+
+                }
+                
+                
             }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void Savebutton1_Click(object sender, EventArgs e)
+        {
+            DbChanges.Save();
+            MessageBox.Show("saved successfully");
         }
     }
 }

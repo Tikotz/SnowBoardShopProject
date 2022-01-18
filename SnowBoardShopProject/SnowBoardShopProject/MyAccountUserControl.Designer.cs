@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MyAccountUserControl));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Savebutton1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -58,10 +59,21 @@
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // Savebutton1
+            // 
+            this.Savebutton1.Location = new System.Drawing.Point(655, 355);
+            this.Savebutton1.Name = "Savebutton1";
+            this.Savebutton1.Size = new System.Drawing.Size(112, 34);
+            this.Savebutton1.TabIndex = 3;
+            this.Savebutton1.Text = "Save Changes";
+            this.Savebutton1.UseVisualStyleBackColor = true;
+            this.Savebutton1.Click += new System.EventHandler(this.Savebutton1_Click);
+            // 
             // MyAccountUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Savebutton1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "MyAccountUserControl";
@@ -77,5 +89,6 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button Savebutton1;
     }
 }

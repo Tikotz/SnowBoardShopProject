@@ -49,9 +49,9 @@ namespace SnowBoardShopProject
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             
-            DbChanges.ChangeIsLogin(LoginForm.thisUser.GetInfo());
+            DbChanges.ChangeIsLogin(User.ThisClient.GetInfo());
 
-            var text = "Bye Bye have a nice day !";
+            var text = $"Bye Bye {User.ThisClient.FirstName} {User.ThisClient.LastName}/n keep Ride in style !";
             var caption = "Exit";
             var botton = MessageBoxButtons.OK;
             MessageBox.Show(text, caption, botton);

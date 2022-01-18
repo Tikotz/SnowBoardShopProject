@@ -11,9 +11,14 @@ namespace SnowBoardShopProject.DB
     {
         private bool IsInitialized = false;
         private dynamic DbUser;
+        public static Client ThisClient { get; set; }
         private string UserName { get; set; }
         private string Password { get; set; }
 
+        public User()
+        {
+
+        }
         public User(string UserName, string Password)
         {
             this.UserName = UserName;
@@ -27,7 +32,7 @@ namespace SnowBoardShopProject.DB
                 using (var db = new SnowBoardShopContext())
                 {
                     // Intialize user and apply found values to the main state of the class .
-                    var DbUser = db.Clients.Where(c => c.UserName == this.UserName && c.Password == this.Password).FirstOrDefault();
+                    var DbUser = db.Clients.Where(c => c.UserName == this.UserName && c.Password == this.Password).Select(c => c).FirstOrDefault();
                     this.DbUser = DbUser;
                 }
                 IsInitialized = true;
@@ -40,6 +45,19 @@ namespace SnowBoardShopProject.DB
             }
         }
 
+        public static bool IsAdmin(Client client)
+        {
+            using (var db = new SnowBoardShopContext())
+            {
+                var admin = db.Admins.Where(a => a.AccountId == client.Id).FirstOrDefault();
+                if (admin != null)
+                {
+                    return true;
+                }
+                return false;
+            }
+            
+        }
         public string GetFullName()
         {
             return this.DbUser.FirstName + " " + this.DbUser.LastName;
@@ -109,10 +127,7 @@ namespace SnowBoardShopProject.DB
         {
             try
             {
-                Client client = new Client();
-                client = this.DbUser;
-                
-                return client;
+                return ThisClient;
 
             }
             catch (Exception)

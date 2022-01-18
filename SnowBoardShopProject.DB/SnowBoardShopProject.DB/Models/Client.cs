@@ -6,9 +6,8 @@ using System.Text.RegularExpressions;
 
 namespace SnowBoardShopProject.DB.Models
 {
-    public partial class Client
+    public partial class Client :User
     {
-        
         public Client()
         {
             Orders = new HashSet<Order>();
@@ -26,7 +25,7 @@ namespace SnowBoardShopProject.DB.Models
 
         public virtual ICollection<Order> Orders { get; set; }
 
-      
+
         public static bool IsEmailValid(string mail)
         {
             string pattern = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
@@ -41,8 +40,8 @@ namespace SnowBoardShopProject.DB.Models
         {
             string pattern = @"^\d+$";
             return Regex.IsMatch(num, pattern);
-        }
 
+        }
         
     }
 }

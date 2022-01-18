@@ -1,4 +1,5 @@
-﻿using SnowBoardShopProject.DB.Models;
+﻿using SnowBoardShopProject.DB;
+using SnowBoardShopProject.DB.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,12 +33,18 @@ namespace SnowBoardShopProject
                 try
                 {
 
-                    var od = orders.Where(o => db.OrderDetails.Any(c => c.OrderId == o.OrderId)).ToList();
+                    if (User.IsAdmin(LoginForm.ThisDbClient))
+                    {
+                        var qur = db.OrderDetails.ToList();
+                        dataGridView1.DataSource = qur;
+                    }
+                    else
+                    {
+                        var od = orders.Where(o => db.OrderDetails.Any(c => c.OrderId == o.OrderId)).ToList();
+                        dataGridView1.DataSource = od;
 
-
-                    dataGridView1.DataSource = od;
-
-                    dataGridView1.ReadOnly = true;
+                        dataGridView1.ReadOnly = true;
+                    }
 
                 }
                 catch (Exception)

@@ -20,12 +20,23 @@ namespace SnowBoardShopProject.DB
                     {
                         client.IsLogin = "false";
                     }
+                    else if(client.IsLogin == "false")
+                    {
+                        client.IsLogin = "false";
+                    }
                     else
                     {
                         client.IsLogin = "true";
                     }
                     db.SaveChanges();
                 }
+            }
+        }
+        public static void Save()
+        {
+            using (var db = new SnowBoardShopContext())
+            {
+                db.SaveChanges();
             }
         }
     }

@@ -17,6 +17,7 @@ namespace SnowBoardShopProject.DB.Models
         {
         }
 
+        public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<Company> Companies { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
@@ -35,6 +36,11 @@ namespace SnowBoardShopProject.DB.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Hebrew_CI_AS");
+
+            modelBuilder.Entity<Admin>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+            });
 
             modelBuilder.Entity<Client>(entity =>
             {
@@ -91,6 +97,12 @@ namespace SnowBoardShopProject.DB.Models
                 entity.Property(e => e.Quantity).HasDefaultValueSql("((1))");
 
                 entity.Property(e => e.UnitPrice).HasColumnType("money");
+
+                entity.HasOne(d => d.Order)
+                    .WithMany(p => p.OrderDetails)
+                    .HasForeignKey(d => d.OrderId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_OrderDetails_Orders");
 
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.OrderDetails)

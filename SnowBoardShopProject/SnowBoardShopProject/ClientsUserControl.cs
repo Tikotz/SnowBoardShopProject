@@ -135,10 +135,15 @@ namespace SnowBoardShopProject
                     }
                     lblMessegeTxt.Text = "one or more of the following information is not valid";
 
-                    db.SaveChanges();
-                    this.Hide();
-                    IsHide = true;
+                    
                 }
+                db.SaveChanges();
+                LoginForm loginForm = new LoginForm();
+                this.Hide();
+                loginForm.Dock = DockStyle.Fill;
+                loginForm.BringToFront();
+                this.Size = new System.Drawing.Size(528, 731);
+                IsHide = true;
             }
         }
     }

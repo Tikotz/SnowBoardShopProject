@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.forgotPasswordbutton2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -48,6 +49,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel1.Controls.Add(this.forgotPasswordbutton2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
@@ -66,6 +68,18 @@
             this.panel1.Size = new System.Drawing.Size(506, 675);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // forgotPasswordbutton2
+            // 
+            this.forgotPasswordbutton2.FlatAppearance.BorderSize = 0;
+            this.forgotPasswordbutton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.forgotPasswordbutton2.Location = new System.Drawing.Point(143, 614);
+            this.forgotPasswordbutton2.Name = "forgotPasswordbutton2";
+            this.forgotPasswordbutton2.Size = new System.Drawing.Size(169, 34);
+            this.forgotPasswordbutton2.TabIndex = 1;
+            this.forgotPasswordbutton2.Text = "Forgot Password?";
+            this.forgotPasswordbutton2.UseVisualStyleBackColor = true;
+            this.forgotPasswordbutton2.Click += new System.EventHandler(this.forgotPasswordbutton2_Click);
             // 
             // button1
             // 
@@ -209,5 +223,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button forgotPasswordbutton2;
     }
 }

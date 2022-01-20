@@ -57,7 +57,6 @@ namespace SnowBoardShopProject
                     form.ShowDialog();
                     db.SaveChanges();
                     this.Dispose();
-
                 }
 
             }
@@ -91,6 +90,15 @@ namespace SnowBoardShopProject
             var caption = "Exit";
             var botton = MessageBoxButtons.OK;
             MessageBox.Show(text, caption, botton);
+        }
+
+        private void forgotPasswordbutton2_Click(object sender, EventArgs e)
+        {
+            ForgotPasswordUserControl forgotPasswordUserControl = new ForgotPasswordUserControl();
+            panel1.Controls.Add(forgotPasswordUserControl);
+            forgotPasswordUserControl.Dock = DockStyle.Fill;
+            forgotPasswordUserControl.BringToFront();
+            this.Size = new System.Drawing.Size(734, 508);
         }
     }
 }

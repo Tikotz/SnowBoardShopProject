@@ -123,19 +123,6 @@ namespace SnowBoardShopProject.DB
             }
         }
 
-        public Client GetInfo()
-        {
-            try
-            {
-                return ThisClient;
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
 
         public bool Save()
         {
@@ -150,6 +137,20 @@ namespace SnowBoardShopProject.DB
                 return false;
             }
         }
+        #region Get Info
+        public Client GetInfo()
+        {
+            try
+            {
+                return ThisClient;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
         public static Client GetInfo(int id)
         {
@@ -158,8 +159,25 @@ namespace SnowBoardShopProject.DB
                 ThisClient = db.Clients.Where(c => c.Id == id).Select(c => c).FirstOrDefault();
                 return ThisClient;
             }
+        }
+        public static Client GetInfo(string username)
+        {
+            using (var db = new SnowBoardShopContext())
+            {
+                ThisClient = db.Clients.Where(c => c.UserName == username).Select(c => c).FirstOrDefault();
+                return ThisClient;
+            }
+        }
+        #endregion
 
-
+        public string GetGmail()
+        {
+            return ThisClient.Email;
+        }
+        public string GetPassword(string username)
+        {
+            var client = GetInfo(username);
+            return client.Password;
         }
     }
 }

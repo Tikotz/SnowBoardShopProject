@@ -43,7 +43,7 @@ namespace SnowBoardShopProject
                 var subject = "ForgotPassword";
                 var password = LoginForm.ThisDbClient.GetPassword(UsernameTextBox2.Text);
                 var body = $"your password is: {password}";
-                string from = "oritikozki@gmail.com";
+                string from = "o*******@*****.com";
                 MailMessage mail = new MailMessage(from, gmailTextBox1.Text);
                 using (SmtpClient smtpclient = new SmtpClient())
                 {
@@ -58,8 +58,8 @@ namespace SnowBoardShopProject
                     smtpclient.Credentials = new System.Net.NetworkCredential()
 
                     {
-                        UserName = "oritikozki@gmail.com",
-                        Password = "zaqqaz11556644"
+                        UserName = "o********@*****.com",
+                        Password = "************"
                     };
                     smtpclient.Send(mail);
                 }

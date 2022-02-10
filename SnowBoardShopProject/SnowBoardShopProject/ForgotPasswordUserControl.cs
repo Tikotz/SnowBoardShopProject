@@ -1,4 +1,5 @@
-﻿using SnowBoardShopProject.DB.Models;
+﻿using SnowBoardShopProject.DB;
+using SnowBoardShopProject.DB.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +25,36 @@ namespace SnowBoardShopProject
 
         private void getPaaawordbutton1_Click(object sender, EventArgs e)
         {
+            ForggotPassHendler userName = new ForgotPassHandlerUserName();
+            ForggotPassHendler userName2 = new ForgotPassHandlerUserName2();
+
+
+            ForggotPassHendler Email = new ForgotPassHandlerEmail();
+            ForggotPassHendler Email2 = new ForgotPassHandlerEmail2();
+
+
+            ForggotPassHendler End = new ForgotPassHandlerEnd();
+
+
+            userName.SetNext(userName2);
+            userName2.SetNext(End);
+            Email.SetNext(Email2);
+            Email2.SetNext(End);
+            End.SetNext(null);
+
+
+            //here i use "Chain of responsibility" to chack what is missing in the inputs from the "Forgot PasswordUserControl" and Hendeling the situation.
+            if (!userName.HendleRequest(UsernameTextBox2.Text))
+            {
+                return;
+            }
+            else if (!Email.HendleRequest(gmailTextBox1.Text))
+            {
+                return ;
+            }
+            else
+            {
+
             SendAccountDetailsThroughEmail();
 
             MessageBox.Show("Chack your email !");
@@ -34,6 +65,10 @@ namespace SnowBoardShopProject
             loginForm.Dock = DockStyle.Fill;
             loginForm.BringToFront();
             IsHide = true;
+            }
+
+
+
         }
 
         public void SendAccountDetailsThroughEmail()

@@ -65,5 +65,53 @@ namespace SnowBoardShopProject.Models
                 }
             }
         }
+
+        private void FilterButton_Click(object sender, EventArgs e)
+        {
+            using(var db = new SnowBoardShopContext())
+            {
+                var date = dateTimePicker1.Value.Date;
+                var client = db.Clients.Where(c => c.Id == LoginForm.thisUser.GetID()).FirstOrDefault();
+                var query = db.Orders.Where(c => c.CustomerId == client.Id).Select(c => c).ToList();
+                var count = 0;
+                
+                List<Order> orders = new List<Order>();
+                foreach (var item in query)
+                {
+                    if(item.OrderDate.Value.Date == date)
+                    {
+                        count++;
+                        orders.Add(item);
+                    }
+                }
+                dataGridView1.DataSource = orders;
+                if(count == 0)
+                {
+                    MessageBox.Show("there is no orders in that date");
+                }
+
+
+            }
+        }
+
+        private void GetALL_Click(object sender, EventArgs e)
+        {
+            using (var db = new SnowBoardShopContext())
+            {
+                var client = db.Clients.Where(c => c.Id == LoginForm.thisUser.GetID()).FirstOrDefault();
+
+                if (User.IsAdmin(LoginForm.ThisDbClient))
+                {
+                    var qur = db.Orders.Select(o => o).ToList();
+                    dataGridView1.DataSource = qur;
+                }
+                else
+                {
+                    var query = db.Orders.Where(c => c.CustomerId == client.Id).Select(c => c).ToList();
+                    dataGridView1.DataSource = query;
+
+                }
+            }
+        }
     }
 }

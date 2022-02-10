@@ -6,8 +6,9 @@ using System.Text.RegularExpressions;
 
 namespace SnowBoardShopProject.DB.Models
 {
-    public partial class Client :User
+    public partial class Client : User
     {
+
         public Client()
         {
             Orders = new HashSet<Order>();
@@ -42,6 +43,19 @@ namespace SnowBoardShopProject.DB.Models
             return Regex.IsMatch(num, pattern);
 
         }
-        
+
+        public static Client CreateClientInstance(string FirstName, string LastName, int PhoneNumber, string Email, string UserName, string Password)
+        {
+            Client newClient = new Client();
+
+            newClient.FirstName = FirstName;
+            newClient.LastName = LastName;
+            newClient.PhoneNumber = Convert.ToInt32(PhoneNumber);
+            newClient.Email = Email;
+            newClient.UserName = UserName;
+            newClient.Password = Password;
+
+            return newClient;
+        }
     }
 }

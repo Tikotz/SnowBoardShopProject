@@ -77,7 +77,7 @@
             this.PasswordtextBox1.Location = new System.Drawing.Point(187, 309);
             this.PasswordtextBox1.Name = "PasswordtextBox1";
             this.PasswordtextBox1.Size = new System.Drawing.Size(197, 31);
-            this.PasswordtextBox1.TabIndex = 60;
+            this.PasswordtextBox1.TabIndex = 5;
             // 
             // label7
             // 
@@ -93,7 +93,7 @@
             this.UserNametextBox1.Location = new System.Drawing.Point(187, 257);
             this.UserNametextBox1.Name = "UserNametextBox1";
             this.UserNametextBox1.Size = new System.Drawing.Size(197, 31);
-            this.UserNametextBox1.TabIndex = 58;
+            this.UserNametextBox1.TabIndex = 4;
             // 
             // label2
             // 
@@ -120,7 +120,7 @@
             this.AddClient.Location = new System.Drawing.Point(525, 227);
             this.AddClient.Name = "AddClient";
             this.AddClient.Size = new System.Drawing.Size(354, 63);
-            this.AddClient.TabIndex = 55;
+            this.AddClient.TabIndex = 6;
             this.AddClient.Text = "Add Client";
             this.AddClient.UseVisualStyleBackColor = false;
             this.AddClient.Click += new System.EventHandler(this.AddClient_Click_1);
@@ -130,7 +130,7 @@
             this.PhoneNumbertextBox5.Location = new System.Drawing.Point(187, 205);
             this.PhoneNumbertextBox5.Name = "PhoneNumbertextBox5";
             this.PhoneNumbertextBox5.Size = new System.Drawing.Size(197, 31);
-            this.PhoneNumbertextBox5.TabIndex = 54;
+            this.PhoneNumbertextBox5.TabIndex = 3;
             // 
             // label5
             // 
@@ -146,7 +146,7 @@
             this.EmailtextBox6.Location = new System.Drawing.Point(187, 141);
             this.EmailtextBox6.Name = "EmailtextBox6";
             this.EmailtextBox6.Size = new System.Drawing.Size(197, 31);
-            this.EmailtextBox6.TabIndex = 52;
+            this.EmailtextBox6.TabIndex = 2;
             // 
             // label6
             // 
@@ -162,7 +162,7 @@
             this.LastNametextBox4.Location = new System.Drawing.Point(187, 80);
             this.LastNametextBox4.Name = "LastNametextBox4";
             this.LastNametextBox4.Size = new System.Drawing.Size(197, 31);
-            this.LastNametextBox4.TabIndex = 50;
+            this.LastNametextBox4.TabIndex = 1;
             // 
             // label4
             // 
@@ -178,7 +178,7 @@
             this.FirstNametextBox3.Location = new System.Drawing.Point(187, 22);
             this.FirstNametextBox3.Name = "FirstNametextBox3";
             this.FirstNametextBox3.Size = new System.Drawing.Size(197, 31);
-            this.FirstNametextBox3.TabIndex = 48;
+            this.FirstNametextBox3.TabIndex = 0;
             // 
             // label3
             // 

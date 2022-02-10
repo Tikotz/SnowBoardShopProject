@@ -76,7 +76,7 @@
             this.forgotPasswordbutton2.Location = new System.Drawing.Point(143, 614);
             this.forgotPasswordbutton2.Name = "forgotPasswordbutton2";
             this.forgotPasswordbutton2.Size = new System.Drawing.Size(169, 34);
-            this.forgotPasswordbutton2.TabIndex = 1;
+            this.forgotPasswordbutton2.TabIndex = 4;
             this.forgotPasswordbutton2.Text = "Forgot Password?";
             this.forgotPasswordbutton2.UseVisualStyleBackColor = true;
             this.forgotPasswordbutton2.Click += new System.EventHandler(this.forgotPasswordbutton2_Click);
@@ -88,7 +88,7 @@
             this.button1.Location = new System.Drawing.Point(26, 538);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(403, 58);
-            this.button1.TabIndex = 33;
+            this.button1.TabIndex = 3;
             this.button1.Text = "Register";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);

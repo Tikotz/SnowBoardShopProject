@@ -98,7 +98,6 @@ namespace SnowBoardShopProject
             panel1.Controls.Add(forgotPasswordUserControl);
             forgotPasswordUserControl.Dock = DockStyle.Fill;
             forgotPasswordUserControl.BringToFront();
-            this.Size = new System.Drawing.Size(734, 508);
         }
     }
 }

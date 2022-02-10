@@ -16,7 +16,6 @@ namespace SnowBoardShopProject
 {
     public partial class ClientsUserControl : UserControl
     {
-        Client newClient = new Client();
 
         public static int lastWighth { get; set; }
         public static int lasthighth { get; set; }
@@ -106,19 +105,13 @@ namespace SnowBoardShopProject
         {
             using (var db = new SnowBoardShopContext())
             {
-
+                //here im using "Factory method" to Create a new client.
                 if (Client.IsEmailValid(EmailtextBox6.Text) && Client.IsFNameValid(FirstNametextBox3.Text + " " + LastNametextBox4.Text) && Client.IsDecimal(PhoneNumbertextBox5.Text))
                 {
-
-                    newClient.FirstName = FirstNametextBox3.Text;
-                    newClient.LastName = LastNametextBox4.Text;
-                    newClient.PhoneNumber = Convert.ToInt32(PhoneNumbertextBox5.Text);
-                    newClient.Email = EmailtextBox6.Text;
-                    newClient.UserName = UserNametextBox1.Text;
-                    newClient.Password = PasswordtextBox1.Text;
-
+                    var newClient = Client.CreateClientInstance(FirstNametextBox3.Text, LastNametextBox4.Text, Convert.ToInt32(PhoneNumbertextBox5.Text), EmailtextBox6.Text, UserNametextBox1.Text, PasswordtextBox1.Text);
+                   
                     db.Clients.Add(newClient);
-
+                    
                     MessageBox.Show("Client Added Succesfully");
                 }
                 else

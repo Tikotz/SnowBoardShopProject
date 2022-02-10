@@ -44,7 +44,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(734, 508);
+            this.pictureBox1.Size = new System.Drawing.Size(528, 731);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -109,7 +109,7 @@
             this.Controls.Add(this.gmailLabel1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "ForgotPasswordUserControl";
-            this.Size = new System.Drawing.Size(734, 508);
+            this.Size = new System.Drawing.Size(528, 731);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

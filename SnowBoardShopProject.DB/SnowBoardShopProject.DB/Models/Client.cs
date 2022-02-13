@@ -8,7 +8,6 @@ namespace SnowBoardShopProject.DB.Models
 {
     public partial class Client : User
     {
-
         public Client()
         {
             Orders = new HashSet<Order>();
@@ -25,6 +24,7 @@ namespace SnowBoardShopProject.DB.Models
         public string IsLogin { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
+
 
 
         public static bool IsEmailValid(string mail)
@@ -50,7 +50,7 @@ namespace SnowBoardShopProject.DB.Models
 
             newClient.FirstName = FirstName;
             newClient.LastName = LastName;
-            newClient.PhoneNumber = Convert.ToInt32(PhoneNumber);
+            newClient.PhoneNumber = PhoneNumber;
             newClient.Email = Email;
             newClient.UserName = UserName;
             newClient.Password = Password;

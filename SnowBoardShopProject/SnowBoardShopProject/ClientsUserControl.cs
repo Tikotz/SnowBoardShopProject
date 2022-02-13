@@ -105,6 +105,7 @@ namespace SnowBoardShopProject
         {
             using (var db = new SnowBoardShopContext())
             {
+                //Modole: Client. -עשיתי פה ולידציה על מספר פלאפון תקין,מס זהות תקין,שם ושם משפחה תקינים. ראה ולידציות ב
                 //here im using "Factory method" to Create a new client.
                 if (Client.IsEmailValid(EmailtextBox6.Text) && Client.IsFNameValid(FirstNametextBox3.Text + " " + LastNametextBox4.Text) && Client.IsDecimal(PhoneNumbertextBox5.Text))
                 {

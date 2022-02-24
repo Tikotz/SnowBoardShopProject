@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,9 +26,10 @@ namespace SnowBoardShopProject
         {
             using (var db = new SnowBoardShopContext())
             {
+                
                 cmbBoards.DataSource = db.Products.OrderBy(p => p.ProductName).Select(a => a.ProductName).ToList();
 
-               ClientNametextBox1.Text = LoginForm.thisUser.GetFullName();
+                ClientNametextBox1.Text = LoginForm.thisUser.GetFullName();
 
             }
         }
@@ -75,6 +77,9 @@ namespace SnowBoardShopProject
                     PricetextBox1.Text = "0";
                 }
             }
+
+            GetBoardPics(cmbBoards.AccessibilityObject.Value);
+
         }
 
         private void SaveOrderbutton1_Click(object sender, EventArgs e)
@@ -150,6 +155,136 @@ namespace SnowBoardShopProject
             }
         }
 
+        public void GetBoardPics(string BoardName)
+        {
+            switch (BoardName)
+            {
+                case "Prosses":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.Procces;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.FlyingV;
+                    
+                    break;
+                case "Custome":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.custom;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.FlyingV;
+                    break;
+                case "FlightAttendent":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.flight_attendant;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.DirectionalCamber;
+                    break;
+                case "SkeletonKey":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.SkeletonKey;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.DirectionalCamber;
+                    break;
+                case "HomeTownHero":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.HomeTownHero;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.DirectionalCamber;
+                    break;
+                case "DeepThinker":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.DeepThinker;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.DirectionalCamber;
+                    break;
+                case "Kilroy3D":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.Kilroy3D;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.camber;
+                    break;
+                case "T.RisePro":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.T_RisePro;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.lib_tech_c2_contour;
+                    break;
+                case "ColdBrew":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.ColdBrew;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.lib_tech_c2_contour;
+                    break;
+                case "T.RiseOrca":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.T_RiseOrca;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.lib_tech_c2_contour;
+                    break;
+                case "SkateBanana":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.SkateBanana;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.lib_tech_original_banana_contour_3;
+                    break;
+                case "GoldenOrca":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.GoldenOrca;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.lib_tech_c2_contour;
+                    break;
+                case "MagicBM":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.MagicBM;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.lib_tech_c2_contour;
+                    break;
+                case "LostRocket":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.LostRocket;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.C3;
+                    break;
+                case "GWO":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.GWO;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.lib_tech_original_banana_contour_3;
+                    break;
+                case "HeadSpace":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.HeadSpace;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.C3;
+                    break;
+                case "Finest":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.Finest;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.lib_tech_c2_contour;
+                    break;
+                case "RidersChoise":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.RidersChoise;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.lib_tech_c2_contour;
+                    break;
+                case "DanceHaul":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.DanceHaul;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.DirectionalCamber;
+                    break;
+                case "Assessin":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.Assessin;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.camber;
+                    break;
+                case "AssessinPro":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.AssessinPro;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.camber;
+                    break;
+                case "Super8":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.Super8;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.DirectionalCamber;
+                    break;
+                case "SnowTrooper":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.SnowTrooper;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.Never_Summer_original_rocker_camber_profile;
+                    break;
+                case "ProtoSynthesis":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.ProtoSynthesis;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.shockWave;
+                    break;
+                case "ProtoUltra":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.ProtoUltra;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.shockWave;
+                    break;
+                case "ProtoSlinger":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.ProtoSlinger;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.shockWave;
+                    break;
+                case "ProtoFR":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.ProtoFR;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.trippleRokerCamber;
+                    break;
+                case "ShaperTwin":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.ShaperTwin;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.Never_Summer_Fusion_Rocker_Camber;
+                    break;
+                case "Harpoon":
+                    pictureBox1.Image = SnowBoardShopProject.Properties.Resources.Harpoon;
+                    pictureBox2.Image = SnowBoardShopProject.Properties.Resources.Never_Summer_Fusion_Rocker_Camber;
+                    break;
+
+
+                default:
+                    pictureBox1.Image = null;
+                    pictureBox2.Image = null;
+                    break;
+            }
+        }
+
         private void QuantitycomboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             using (var db = new SnowBoardShopContext())
@@ -167,6 +302,11 @@ namespace SnowBoardShopProject
                         break;
                 }
             }
+        }
+
+        private void ShopUserControl_Leave(object sender, EventArgs e)
+        {
+
         }
     }
 }

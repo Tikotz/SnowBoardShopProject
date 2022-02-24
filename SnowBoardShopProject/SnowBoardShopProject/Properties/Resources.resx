@@ -117,4 +117,122 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Assessin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assessin.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AssessinPro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AssessinPro.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="C3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\C3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="camber" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\camber.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ColdBrew" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ColdBrew.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\custom.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DanceHaul" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DanceHaul.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DeepThinker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeepThinker.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DirectionalCamber" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DirectionalCamber.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Finest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Finest.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flight_attendant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flight-attendant.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FlyingV" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FlyingV.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GoldenOrca" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GoldenOrca.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GWO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GWO.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Harpoon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Harpoon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HeadSpace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HeadSpace.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HomeTownHero" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HomeTownHero.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Kilroy3D" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kilroy3D.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lib_tech_c2_contour" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lib-tech-c2-contour.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lib_tech_original_banana_contour_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lib-tech-original-banana-contour_3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LostRocket" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LostRocket.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MagicBM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MagicBM.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Never_Summer_Fusion_Rocker_Camber" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Never-Summer-Fusion-Rocker-Camber.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Never_Summer_original_rocker_camber_profile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Never-Summer-original-rocker-camber-profile.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Procces" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Procces.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ProtoFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ProtoFR.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ProtoSlinger" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ProtoSlinger.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ProtoSynthesis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ProtoSynthesis.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ProtoUltra" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ProtoUltra.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RidersChoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RidersChoise.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ShaperTwin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ShaperTwin.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shockWave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shockWave.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SkateBanana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SkateBanana.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SkeletonKey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SkeletonKey.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SnowTrooper" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SnowTrooper.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Super8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Super8.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trippleRokerCamber" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trippleRokerCamber.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="T_RiseOrca" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\T.RiseOrca.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="T_RisePro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\T.RisePro.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

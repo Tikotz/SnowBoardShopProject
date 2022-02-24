@@ -20,5 +20,7 @@ namespace SnowBoardShopProject.DB.Models
 
         public virtual Company Company { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+
     }
+
 }

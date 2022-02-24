@@ -90,7 +90,11 @@ namespace SnowBoardShopProject.DB
 
         public void Login()
         {
-            this.DbUser.IsLogin = "true";
+            if(this.DbUser != null)
+            {
+                this.DbUser.IsLogin = "true";
+
+            }
         }
         public void Logout()
         {

@@ -23,6 +23,12 @@ namespace SnowBoardShopProject.DB.Models
         public int Budget { get; set; }
         public string IsLogin { get; set; }
 
+        public Client(string UserName, string Password)
+        {
+            this.UserName = UserName;
+            this.Password = Password;
+        }
+
         public virtual ICollection<Order> Orders { get; set; }
 
 

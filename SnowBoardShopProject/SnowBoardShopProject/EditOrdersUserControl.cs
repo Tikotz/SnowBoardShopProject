@@ -26,9 +26,7 @@ namespace SnowBoardShopProject
                 var client = db.Clients.Where(c => c.Id == LoginForm.thisUser.GetID()).FirstOrDefault();
 
                 var orders = db.Orders.Where(c => c.CustomerId == client.Id).Select(c => c).ToList();
-                //List<int> Ids = new List<int>();
-                //var orders = client.Orders.Select(o => o.OrderId).ToList();
-                //var ordersDetails = db.OrderDetails.Where((c => c.OrderId).ToList();
+                
 
                 try
                 {
@@ -40,9 +38,12 @@ namespace SnowBoardShopProject
                     }
                     else
                     {
-                        var od = orders.Where(o => db.OrderDetails.Any(c => c.OrderId == o.OrderId)).ToList();
-                        dataGridView1.DataSource = od;
-
+                        var od1 = new List<OrderDetail>();
+                        foreach (var item in orders)
+                        {
+                            od1.Add(db.OrderDetails.Where(o => o.OrderId == item.OrderId).Select(o => o).FirstOrDefault());
+                        }
+                        dataGridView1.DataSource = od1;
                         dataGridView1.ReadOnly = true;
                     }
 
@@ -52,8 +53,6 @@ namespace SnowBoardShopProject
                     MessageBox.Show("You still didnt order anything... Go make an order first");
 
                 }
-
-
             }
         }
 
@@ -61,11 +60,13 @@ namespace SnowBoardShopProject
         {
             using (var db = new SnowBoardShopContext())
             {
-
                 if (OrderIdtextBox1.Text != null)
                 {
                     var remove = db.OrderDetails.Where(r => r.OrderId == int.Parse(OrderIdtextBox1.Text)).FirstOrDefault();
+                    var remove2 = db.Orders.Where(r => r.OrderId == int.Parse(OrderIdtextBox1.Text)).FirstOrDefault();
+
                     db.OrderDetails.Remove(remove);
+                    db.Orders.Remove(remove2);
                     var product = db.Products.Where(p => p.ProductId == remove.ProductId).Select(p => p).FirstOrDefault();
                     product.UnitInStock += 1;
                     LoginForm.thisUser.IncBudget((int)product.UnitPrice);
@@ -74,7 +75,6 @@ namespace SnowBoardShopProject
 
                 dataGridView1.DataSource = db.OrderDetails.Select(od => od).ToList();
             }
-
         }
 
         private void Editbutton1_Click(object sender, EventArgs e)

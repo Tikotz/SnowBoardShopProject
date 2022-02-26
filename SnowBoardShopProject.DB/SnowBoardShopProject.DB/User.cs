@@ -32,7 +32,8 @@ namespace SnowBoardShopProject.DB
                 using (var db = new SnowBoardShopContext())
                 {
                     // Intialize user and apply found values to the main state of the class .
-                    var DbUser = db.Clients.Where(c => c.UserName == this.UserName && c.Password == this.Password).Select(c => c).FirstOrDefault();
+                    var DbUser = db.Clients.Where(c => c.UserName == UserName && c.Password == Password).Select(c => c).FirstOrDefault();
+
                     this.DbUser = DbUser;
                 }
                 IsInitialized = true;
@@ -69,37 +70,37 @@ namespace SnowBoardShopProject.DB
 
         public int GetBudget()
         {
-            return this.DbUser.Budget;
+            return ThisClient.Budget;
         }
 
         public int setBudget(int newBudget)
         {
-            this.DbUser.Budget = newBudget;
-            return this.DbUser.Budget;
+            ThisClient.Budget = newBudget;
+            return ThisClient.Budget;
         }
         public int DecBudget(int price)
         {
-            this.DbUser.Budget -= price;
-            return this.DbUser.Budget;
+            ThisClient.Budget -= price;
+            return ThisClient.Budget;
         }
         public int IncBudget(int price)
         {
-            this.DbUser.Budget += price;
-            return this.DbUser.budget;
+            ThisClient.Budget += price;
+            return ThisClient.Budget;
         }
 
         public void Login()
         {
-            if(this.DbUser != null)
+            using(var db = new SnowBoardShopContext())
             {
-                this.DbUser.IsLogin = "true";
-
+                var client = db.Clients.Where(c => c.Id == ThisClient.Id).Select(c => c).FirstOrDefault();
+                client.IsLogin = "true";
+                db.Update(client);
+                db.SaveChanges();
             }
+            
         }
-        public void Logout()
-        {
-            this.DbUser.IsLogin = "false";
-        }
+        
 
         public Order GetOrders()
         {
@@ -133,7 +134,7 @@ namespace SnowBoardShopProject.DB
             // Save the new document to SQL Express
             try
             {
-                this.DbUser.SaveChanges();
+                DbChanges.Save();
                 return true;
             }
             catch (Exception ex)
@@ -146,6 +147,7 @@ namespace SnowBoardShopProject.DB
         {
             try
             {
+                
                 return ThisClient;
 
             }

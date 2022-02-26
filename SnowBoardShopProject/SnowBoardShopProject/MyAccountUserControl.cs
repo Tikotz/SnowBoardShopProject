@@ -202,6 +202,7 @@ namespace SnowBoardShopProject.Models
                 client.Budget = int.Parse(BudgettextBox1.Text);
 
                 client.Save();
+                MessageBox.Show("Saved");
                 this.Dispose();
             }
         }

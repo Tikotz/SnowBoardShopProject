@@ -1,4 +1,5 @@
-﻿using SnowBoardShopProject.DB;
+﻿using Microsoft.EntityFrameworkCore;
+using SnowBoardShopProject.DB;
 using SnowBoardShopProject.DB.Models;
 using SnowBoardShopProject.Models;
 using System;
@@ -16,7 +17,7 @@ namespace SnowBoardShopProject
 {
     public partial class ShopUserControl : UserControl
     {
-        
+
         public ShopUserControl()
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace SnowBoardShopProject
         {
             using (var db = new SnowBoardShopContext())
             {
-                
+
                 cmbBoards.DataSource = db.Products.OrderBy(p => p.ProductName).Select(a => a.ProductName).ToList();
 
                 ClientNametextBox1.Text = LoginForm.thisUser.GetFullName();
@@ -88,10 +89,10 @@ namespace SnowBoardShopProject
             {
 
                 int price = int.Parse(PricetextBox1.Text);
-                var budget = LoginForm.thisUser.GetBudget();
+                var budget = LoginForm.ThisDbClient.GetBudget();
                 if ((budget >= price) && QuantitycomboBox1.Text != "0")
                 {
-                    
+
                     var thisBoard = cmbBoards.SelectedValue;
                     var remove = db.Products.Where(b => b.ProductName == thisBoard).Select(b => b).FirstOrDefault();
                     if (remove.UnitInStock == 0)
@@ -103,34 +104,33 @@ namespace SnowBoardShopProject
                         remove.UnitInStock -= 1;
 
                         Order newOrder = new Order();
-                        newOrder.CustomerId = LoginForm.thisUser.GetID();
+                        newOrder.CustomerId = LoginForm.ThisDbClient.Id;
                         newOrder.OrderDate = DateTime.Now;
                         db.Orders.Add(newOrder);
                         db.SaveChanges();
 
-                        using (var db2 = new SnowBoardShopContext())
-                        {
-                            OrderDetail orderDetail = new OrderDetail();
-                            orderDetail.OrderId = newOrder.OrderId;
-                            orderDetail.ProductId = remove.ProductId;
-                            orderDetail.UnitPrice = price;
-                            orderDetail.Quantity = short.Parse(QuantitycomboBox1.Text);
-                            db2.OrderDetails.Add(orderDetail);
 
-                            //add to orders
-                            //add to order details
-                            LoginForm.thisUser.DecBudget(price);
-                            
-                            MessageBox.Show("purchase succssesfully");
-                            LoginForm.thisUser.Save();
-                            db.SaveChanges();
-                        }
-                        using (var db3 = new SnowBoardShopContext())
-                        {
-                            LoginForm.thisUser.AddOrder(newOrder);
-                            LoginForm.thisUser.Save();
-                            db.SaveChanges();
-                        }
+
+
+                        OrderDetail orderDetail = new OrderDetail();
+                        orderDetail.OrderId = newOrder.OrderId;
+                        orderDetail.ProductId = remove.ProductId;
+                        orderDetail.UnitPrice = price;
+                        orderDetail.Quantity = short.Parse(QuantitycomboBox1.Text);
+                        db.OrderDetails.Add(orderDetail);
+                        db.SaveChanges();
+
+                        MessageBox.Show("purchase succssesfully");
+                        var client = db.Clients.Where(c => c.Id == LoginForm.ThisDbClient.Id).Select(c => c).FirstOrDefault();
+                        client.Budget -= price;
+                        db.Update(client);
+                        db.SaveChanges();
+
+                        var client2 = db.Clients.Where(c => c.Id == LoginForm.ThisDbClient.Id).Select(c => c).FirstOrDefault();
+                        client2.Orders.Add(newOrder);
+                        db.SaveChanges();
+
+
                     }
                 }
                 else
@@ -153,6 +153,13 @@ namespace SnowBoardShopProject
                     }
                 }
             }
+            //using(var db = new SnowBoardShopContext())
+            //{
+            //    OrderDetail orderDetail = new OrderDetail();
+            //    db.OrderDetails.Add(orderDetail);
+            //    db.SaveChanges();
+
+            //}
         }
 
         public void GetBoardPics(string BoardName)
@@ -162,7 +169,6 @@ namespace SnowBoardShopProject
                 case "Prosses":
                     pictureBox1.Image = SnowBoardShopProject.Properties.Resources.Procces;
                     pictureBox2.Image = SnowBoardShopProject.Properties.Resources.FlyingV;
-                    
                     break;
                 case "Custome":
                     pictureBox1.Image = SnowBoardShopProject.Properties.Resources.custom;

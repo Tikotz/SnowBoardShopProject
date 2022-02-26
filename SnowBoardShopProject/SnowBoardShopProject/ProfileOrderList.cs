@@ -72,25 +72,48 @@ namespace SnowBoardShopProject.Models
             {
                 var date = dateTimePicker1.Value.Date;
                 var client = db.Clients.Where(c => c.Id == LoginForm.thisUser.GetID()).FirstOrDefault();
-                var query = db.Orders.Where(c => c.CustomerId == client.Id).Select(c => c).ToList();
+                var clients = db.Clients.Select(c => c).ToList();
+
                 var count = 0;
                 
                 List<Order> orders = new List<Order>();
-                foreach (var item in query)
+                if(client.UserName == "Admin")
                 {
-                    if(item.OrderDate.Value.Date == date)
+                    var query2 = db.Orders.Select(o => o).ToList();
+                    foreach (var item in query2)
                     {
-                        count++;
-                        orders.Add(item);
+
+                        if (item.OrderDate.Value.Date == date)
+                        {
+                            count++;
+                            orders.Add(item);
+                        }
+                    }
+                    dataGridView1.DataSource = orders;
+                    if (count == 0)
+                    {
+                        MessageBox.Show("there is no orders in that date");
                     }
                 }
-                dataGridView1.DataSource = orders;
-                if(count == 0)
+                else
                 {
-                    MessageBox.Show("there is no orders in that date");
+                    var query = db.Orders.Where(c => c.CustomerId == client.Id).Select(c => c).ToList();
+
+                    foreach (var item in query)
+                    {
+
+                        if (item.OrderDate.Value.Date == date)
+                        {
+                            count++;
+                            orders.Add(item);
+                        }
+                    }
+                    dataGridView1.DataSource = orders;
+                    if (count == 0)
+                    {
+                        MessageBox.Show("there is no orders in that date");
+                    }
                 }
-
-
             }
         }
 

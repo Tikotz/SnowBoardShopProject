@@ -44,21 +44,31 @@ namespace SnowBoardShopProject
                 }
                 else
                 {
-                    thisUser.Login();
+
+                    //DbChanges.ChangeIsLogin(User.ThisClient.GetInfo());
+
 
                     Form1 form = new Form1();
                     using (var db2 = new SnowBoardShopContext())
                     {
                         // Intialize user and apply found values to the main state of the class .
                         var DbUser = db2.Clients.Where(c => c.UserName == UsernametextBox2.Text && c.Password == PasswordtextBox1.Text).Select(c => c).FirstOrDefault();
-                        ThisDbClient = DbUser;
-                        User.ThisClient = ThisDbClient;
+                        if (DbUser != null)
+                        {
+                            ThisDbClient = DbUser;
+                            User.ThisClient = ThisDbClient;
+                            ThisDbClient.Login();
+                            form.ShowDialog();
+                            this.Dispose();
+                        }
+                        else
+                        {
+                            ErrorLogin.Text = "UserName or Password is NOT correct";
+                            ErrorLogin.Visible = true;
+                        }
                     }
-                    form.ShowDialog();
-                    db.SaveChanges();
-                    this.Dispose();
+                    
                 }
-
             }
         }
 
@@ -86,6 +96,7 @@ namespace SnowBoardShopProject
 
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+
             var text = "Bye Bye have a nice day !";
             var caption = "Exit";
             var botton = MessageBoxButtons.OK;

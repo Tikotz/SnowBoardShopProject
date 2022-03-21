@@ -29,7 +29,7 @@ namespace SnowBoardShopProject.DB.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-CGND408\\SQLEXPRESS;Initial Catalog=SnowBoardShop;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Initial Catalog=SnowBoardShop;Integrated Security=True");
             }
         }
 
@@ -128,7 +128,272 @@ namespace SnowBoardShopProject.DB.Models
                     .HasConstraintName("FK_Products_Companies");
             });
 
+            modelBuilder.Entity<Admin>().HasData(
+                new Admin
+                {
+                    Id = 1,
+                    AccountId = 17
+                });
+
+            modelBuilder.Entity<Client>().HasData(
+                new Client
+                {
+                    Id = 1,
+                    FirstName = "ori",
+                    LastName = "tikozki",
+                    PhoneNumber = 0547887927,
+                    Email = "oritikozki@gmail.com",
+                    UserName = "tikotz",
+                    Password = "280298",
+                    Budget = 20000,
+                    IsLogin = "false"
+                },
+                new Client
+                {
+                    Id = 17,
+                    FirstName = "Admin",
+                    LastName = "Boss",
+                    PhoneNumber = 0500000000,
+                    Email = "Admin@gmail.com",
+                    UserName = "Admin",
+                    Password = "admin123",
+                    Budget = 0,
+                    IsLogin = "false"
+                });
+
+            modelBuilder.Entity<Company>().HasData(new Company
+            {
+                CompanyId = 1,
+                CompanyName = "Burton"
+            },
+            new Company
+            {
+                CompanyId = 2,
+                CompanyName = "LibTech"
+            },new Company
+            {
+                CompanyId = 3,
+                CompanyName = "Gnu"
+            }, new Company
+            {
+                CompanyId = 4,
+                CompanyName = "Salomon"
+            }, new Company
+            {
+                CompanyId = 5,
+                CompanyName = "NeverSummer"
+            });
+
+
+
+            modelBuilder.Entity<Product>().HasData(new Product
+            {
+                ProductId = 1,
+                CompanyId = 1,
+                ProductName = "Prosses",
+                UnitPrice = 2190,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 2,
+                CompanyId = 1,
+                ProductName = "Custome",
+                UnitPrice = 2790,
+                UnitInStock = 4
+            }, new Product
+            {
+                ProductId = 3,
+                CompanyId = 1,
+                ProductName = "FlightAttendent",
+                UnitPrice = 2790,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 4,
+                CompanyId = 1,
+                ProductName = "SkeletonKey",
+                UnitPrice = 2490,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 5,
+                CompanyId = 1,
+                ProductName = "HomeTownHero",
+                UnitPrice = 2890,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 6,
+                CompanyId = 1,
+                ProductName = "DeepThinker",
+                UnitPrice = 2790,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 7,
+                CompanyId = 1,
+                ProductName = "Kilroy3D",
+                UnitPrice = 2590,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 8,
+                CompanyId = 2,
+                ProductName = "T.RisePro",
+                UnitPrice = 2890,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 9,
+                CompanyId = 2,
+                ProductName = "ColdBrew",
+                UnitPrice = 2690,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 10,
+                CompanyId = 2,
+                ProductName = "T.RiseOrca",
+                UnitPrice = 3190,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 11,
+                CompanyId = 2,
+                ProductName = "SkateBanana",
+                UnitPrice = 2590,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 12,
+                CompanyId = 2,
+                ProductName = "GoldenOrca",
+                UnitPrice = 3590,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 13,
+                CompanyId = 2,
+                ProductName = "MagicBM",
+                UnitPrice = 2990,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 14,
+                CompanyId = 2,
+                ProductName = "LostRocket",
+                UnitPrice = 2990,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 15,
+                CompanyId = 3,
+                ProductName = "GWO",
+                UnitPrice = 2190,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 16,
+                CompanyId = 3,
+                ProductName = "HeadSpace",
+                UnitPrice = 2690,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 17,
+                CompanyId = 3,
+                ProductName = "Finest",
+                UnitPrice = 2790,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 18,
+                CompanyId = 3,
+                ProductName = "RidersChoise",
+                UnitPrice = 2890,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 19,
+                CompanyId = 4,
+                ProductName = "DanceHaul",
+                UnitPrice = 2090,
+                UnitInStock = 2
+            },new Product
+            {
+                ProductId = 20,
+                CompanyId = 4,
+                ProductName = "Assessin",
+                UnitPrice = 2390,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 21,
+                CompanyId = 4,
+                ProductName = "AssessinPro",
+                UnitPrice = 2790,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 22,
+                CompanyId = 4,
+                ProductName = "Super8",
+                UnitPrice = 2290,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 23,
+                CompanyId = 5,
+                ProductName = "SnowTrooper",
+                UnitPrice = 2990,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 24,
+                CompanyId = 5,
+                ProductName = "ProtoSynthesis",
+                UnitPrice = 3190,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 25,
+                CompanyId = 5,
+                ProductName = "ProtoUltra",
+                UnitPrice = 3190,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 26,
+                CompanyId = 5,
+                ProductName = "ProtoSlinger",
+                UnitPrice = 3190,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 27,
+                CompanyId = 5,
+                ProductName = "ProtoFR",
+                UnitPrice = 3190,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 28,
+                CompanyId = 5,
+                ProductName = "ShaperTwin",
+                UnitPrice = 3190,
+                UnitInStock = 2
+            }, new Product
+            {
+                ProductId = 29,
+                CompanyId = 5,
+                ProductName = "Harpoon",
+                UnitPrice = 3190,
+                UnitInStock = 2
+            });
+
+
             OnModelCreatingPartial(modelBuilder);
+
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

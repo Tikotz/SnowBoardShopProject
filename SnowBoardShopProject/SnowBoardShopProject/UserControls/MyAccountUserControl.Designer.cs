@@ -75,7 +75,6 @@
             this.PasswordtextBox1.Name = "PasswordtextBox1";
             this.PasswordtextBox1.Size = new System.Drawing.Size(197, 31);
             this.PasswordtextBox1.TabIndex = 72;
-            this.PasswordtextBox1.TextChanged += new System.EventHandler(this.PasswordtextBox1_TextChanged);
             // 
             // Passwordlabel7
             // 
@@ -85,7 +84,6 @@
             this.Passwordlabel7.Size = new System.Drawing.Size(96, 25);
             this.Passwordlabel7.TabIndex = 71;
             this.Passwordlabel7.Text = "Password: ";
-            this.Passwordlabel7.Click += new System.EventHandler(this.label7_Click);
             // 
             // UserNametextBox1
             // 
@@ -93,7 +91,6 @@
             this.UserNametextBox1.Name = "UserNametextBox1";
             this.UserNametextBox1.Size = new System.Drawing.Size(197, 31);
             this.UserNametextBox1.TabIndex = 70;
-            this.UserNametextBox1.TextChanged += new System.EventHandler(this.UserNametextBox1_TextChanged);
             // 
             // UserNamelabel2
             // 
@@ -103,7 +100,6 @@
             this.UserNamelabel2.Size = new System.Drawing.Size(103, 25);
             this.UserNamelabel2.TabIndex = 69;
             this.UserNamelabel2.Text = "UserName: ";
-            this.UserNamelabel2.Click += new System.EventHandler(this.label2_Click);
             // 
             // PhoneNumbertextBox5
             // 
@@ -111,7 +107,6 @@
             this.PhoneNumbertextBox5.Name = "PhoneNumbertextBox5";
             this.PhoneNumbertextBox5.Size = new System.Drawing.Size(197, 31);
             this.PhoneNumbertextBox5.TabIndex = 68;
-            this.PhoneNumbertextBox5.TextChanged += new System.EventHandler(this.PhoneNumbertextBox5_TextChanged);
             // 
             // Phonlabel5
             // 
@@ -121,7 +116,6 @@
             this.Phonlabel5.Size = new System.Drawing.Size(141, 25);
             this.Phonlabel5.TabIndex = 67;
             this.Phonlabel5.Text = "Phone Number: ";
-            this.Phonlabel5.Click += new System.EventHandler(this.label5_Click);
             // 
             // EmailtextBox6
             // 
@@ -129,7 +123,6 @@
             this.EmailtextBox6.Name = "EmailtextBox6";
             this.EmailtextBox6.Size = new System.Drawing.Size(197, 31);
             this.EmailtextBox6.TabIndex = 66;
-            this.EmailtextBox6.TextChanged += new System.EventHandler(this.EmailtextBox6_TextChanged);
             // 
             // Emaillabel6
             // 
@@ -139,7 +132,6 @@
             this.Emaillabel6.Size = new System.Drawing.Size(63, 25);
             this.Emaillabel6.TabIndex = 65;
             this.Emaillabel6.Text = "Email: ";
-            this.Emaillabel6.Click += new System.EventHandler(this.label6_Click);
             // 
             // LastNametextBox4
             // 
@@ -156,7 +148,6 @@
             this.LastNamelabel4.Size = new System.Drawing.Size(104, 25);
             this.LastNamelabel4.TabIndex = 63;
             this.LastNamelabel4.Text = "Last Name: ";
-            this.LastNamelabel4.Click += new System.EventHandler(this.label4_Click);
             // 
             // FirstNametextBox3
             // 

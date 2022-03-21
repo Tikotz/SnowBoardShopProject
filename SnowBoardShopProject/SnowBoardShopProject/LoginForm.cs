@@ -26,10 +26,7 @@ namespace SnowBoardShopProject
         }
 
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
 
         private void Loginbutton1_Click(object sender, EventArgs e)
         {
@@ -48,7 +45,7 @@ namespace SnowBoardShopProject
                     //DbChanges.ChangeIsLogin(User.ThisClient.GetInfo());
 
 
-                    Form1 form = new Form1();
+                    MainMenu form = new MainMenu();
                     using (var db2 = new SnowBoardShopContext())
                     {
                         // Intialize user and apply found values to the main state of the class .

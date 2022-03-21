@@ -65,7 +65,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1671, 880);
             this.panel1.TabIndex = 26;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox1
             // 
@@ -119,7 +118,6 @@
             this.PricetextBox1.ReadOnly = true;
             this.PricetextBox1.Size = new System.Drawing.Size(312, 31);
             this.PricetextBox1.TabIndex = 33;
-            this.PricetextBox1.TextChanged += new System.EventHandler(this.PricetextBox1_TextChanged);
             // 
             // label1
             // 
@@ -180,7 +178,6 @@
             this.Name = "ShopUserControl";
             this.Size = new System.Drawing.Size(1671, 880);
             this.Load += new System.EventHandler(this.UserControl1_Load);
-            this.Leave += new System.EventHandler(this.ShopUserControl_Leave);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

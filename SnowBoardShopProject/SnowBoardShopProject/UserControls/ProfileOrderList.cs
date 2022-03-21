@@ -20,31 +20,7 @@ namespace SnowBoardShopProject.Models
             InitializeComponent();
         }
 
-        private void Loginbutton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-
-
-        }
-
-        private void SaveBudget_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        
 
         private void ProfileOrderList_Load(object sender, EventArgs e)
         {

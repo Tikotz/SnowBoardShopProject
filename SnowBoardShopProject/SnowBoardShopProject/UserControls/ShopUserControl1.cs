@@ -35,33 +35,7 @@ namespace SnowBoardShopProject
             }
         }
 
-        private void cmbBoards_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            using (var db = new SnowBoardShopContext())
-            {
-
-            }
-        }
-
-        private void PricetextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbClients_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
 
         private void cmbBoards_SelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -310,9 +284,6 @@ namespace SnowBoardShopProject
             }
         }
 
-        private void ShopUserControl_Leave(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

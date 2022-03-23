@@ -1,16 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SnowBoardShopProject.DB;
-using SnowBoardShopProject.DB.Models;
-using SnowBoardShopProject.Models;
+﻿using SnowBoardShopProject.DB.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SnowBoardShopProject
@@ -34,9 +25,6 @@ namespace SnowBoardShopProject
 
             }
         }
-
-       
-
         private void cmbBoards_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             using (var db = new SnowBoardShopContext())
@@ -61,71 +49,88 @@ namespace SnowBoardShopProject
         {
             using (var db = new SnowBoardShopContext())
             {
-
-                int price = int.Parse(PricetextBox1.Text);
-                var budget = LoginForm.ThisDbClient.GetBudget();
-                if ((budget >= price) && QuantitycomboBox1.Text != "0")
+                try
                 {
-
-                    var thisBoard = cmbBoards.SelectedValue;
-                    var remove = db.Products.Where(b => b.ProductName == thisBoard).Select(b => b).FirstOrDefault();
-                    if (remove.UnitInStock == 0)
+                    var isBoard = db.Products.Where(p => p.ProductName == cmbBoards.Text).Select(a => a.ProductName).FirstOrDefault();
+                    if (cmbBoards.Text != isBoard || QuantitycomboBox1.Text != "1" && QuantitycomboBox1.Text != "2")
                     {
-                        MessageBox.Show("cant purchase this board because it out of Stock... Sorry");
+                        throw new Exception("There is somthing wrong in the order... cheack if somthing empty or incorrect");
                     }
                     else
                     {
-                        remove.UnitInStock -= 1;
+                        int price = int.Parse(PricetextBox1.Text);
+                        var budget = LoginForm.ThisDbClient.GetBudget();
+                        if ((budget >= price) && QuantitycomboBox1.Text != "0")
+                        {
 
-                        Order newOrder = new Order();
-                        newOrder.CustomerId = LoginForm.ThisDbClient.Id;
-                        newOrder.OrderDate = DateTime.Now;
-                        db.Orders.Add(newOrder);
-                        db.SaveChanges();
+                            var thisBoard = cmbBoards.SelectedValue;
+                            var remove = db.Products.Where(b => b.ProductName == thisBoard).Select(b => b).FirstOrDefault();
+                            if (remove.UnitInStock == 0)
+                            {
+                                MessageBox.Show("cant purchase this board because it out of Stock... Sorry");
+                            }
+                            else
+                            {
+                                remove.UnitInStock -= 1;
 
-
-
-
-                        OrderDetail orderDetail = new OrderDetail();
-                        orderDetail.OrderId = newOrder.OrderId;
-                        orderDetail.ProductId = remove.ProductId;
-                        orderDetail.UnitPrice = price;
-                        orderDetail.Quantity = short.Parse(QuantitycomboBox1.Text);
-                        db.OrderDetails.Add(orderDetail);
-                        db.SaveChanges();
-
-                        MessageBox.Show("purchase succssesfully");
-                        var client = db.Clients.Where(c => c.Id == LoginForm.ThisDbClient.Id).Select(c => c).FirstOrDefault();
-                        client.Budget -= price;
-                        db.Update(client);
-                        db.SaveChanges();
-
-                        var client2 = db.Clients.Where(c => c.Id == LoginForm.ThisDbClient.Id).Select(c => c).FirstOrDefault();
-                        client2.Orders.Add(newOrder);
-                        db.SaveChanges();
+                                Order newOrder = new Order();
+                                newOrder.CustomerId = LoginForm.ThisDbClient.Id;
+                                newOrder.OrderDate = DateTime.Now;
+                                db.Orders.Add(newOrder);
+                                db.SaveChanges();
 
 
+
+
+                                OrderDetail orderDetail = new OrderDetail();
+                                orderDetail.OrderId = newOrder.OrderId;
+                                orderDetail.ProductId = remove.ProductId;
+                                orderDetail.UnitPrice = price;
+                                orderDetail.Quantity = short.Parse(QuantitycomboBox1.Text);
+                                db.OrderDetails.Add(orderDetail);
+                                db.SaveChanges();
+
+                                MessageBox.Show("purchase succssesfully");
+                                var client = db.Clients.Where(c => c.Id == LoginForm.ThisDbClient.Id).Select(c => c).FirstOrDefault();
+                                client.Budget -= price;
+                                db.Update(client);
+                                db.SaveChanges();
+
+                                var client2 = db.Clients.Where(c => c.Id == LoginForm.ThisDbClient.Id).Select(c => c).FirstOrDefault();
+                                client2.Orders.Add(newOrder);
+                                db.SaveChanges();
+
+
+                            }
+                        }
+                        else
+                        {
+                            if (budget < price)
+                            {
+                                var text = "you dont have enough money please chack your Budget";
+                                var caption = "Purchased FAILD";
+                                var botton = MessageBoxButtons.OK;
+                                var icon = MessageBoxIcon.Error;
+                                MessageBox.Show(text, caption, botton, icon);
+                            }
+                            else
+                            {
+                                var text = "Somthing is missing chack your order again";
+                                var caption = "Purchased FAILD";
+                                var botton = MessageBoxButtons.OK;
+                                var icon = MessageBoxIcon.Error;
+                                MessageBox.Show(text, caption, botton, icon);
+                            }
+                        }
                     }
+
                 }
-                else
+                catch(Exception)
                 {
-                    if (budget < price)
-                    {
-                        var text = "you dont have enough money please chack your Budget";
-                        var caption = "Purchased FAILD";
-                        var botton = MessageBoxButtons.OK;
-                        var icon = MessageBoxIcon.Error;
-                        MessageBox.Show(text, caption, botton, icon);
-                    }
-                    else
-                    {
-                        var text = "Somthing is missing chack your order again";
-                        var caption = "Purchased FAILD";
-                        var botton = MessageBoxButtons.OK;
-                        var icon = MessageBoxIcon.Error;
-                        MessageBox.Show(text, caption, botton, icon);
-                    }
+                    MessageBox.Show("There is somthing wrong in the order... cheack if somthing empty or incorrect");
                 }
+                
+
             }
             //using(var db = new SnowBoardShopContext())
             //{
@@ -284,6 +289,6 @@ namespace SnowBoardShopProject
             }
         }
 
-       
+
     }
 }

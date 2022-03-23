@@ -108,6 +108,7 @@
             // 
             this.ClientNametextBox1.Location = new System.Drawing.Point(200, 44);
             this.ClientNametextBox1.Name = "ClientNametextBox1";
+            this.ClientNametextBox1.ReadOnly = true;
             this.ClientNametextBox1.Size = new System.Drawing.Size(312, 31);
             this.ClientNametextBox1.TabIndex = 34;
             // 

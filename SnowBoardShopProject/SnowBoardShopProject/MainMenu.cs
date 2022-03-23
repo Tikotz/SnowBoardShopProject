@@ -21,31 +21,6 @@ namespace SnowBoardShopProject
         }
         
 
-        private void Add_Clients_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void OpenShop_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void GetProfilebutton1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void Form1_Leave(object sender, EventArgs e)
-        {
-            
-        }
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             
@@ -58,16 +33,7 @@ namespace SnowBoardShopProject
 
         }
 
-        private void addClientToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void enterShopToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShopUserControl shopUserControl = new ShopUserControl();
@@ -75,11 +41,6 @@ namespace SnowBoardShopProject
             this.WindowState = FormWindowState.Maximized;
             shopUserControl.Dock = DockStyle.Fill;
             shopUserControl.BringToFront();
-        }
-
-        private void profileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void orderListToolStripMenuItem_Click(object sender, EventArgs e)

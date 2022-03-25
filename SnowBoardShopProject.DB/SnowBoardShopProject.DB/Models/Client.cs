@@ -51,13 +51,14 @@ namespace SnowBoardShopProject.DB.Models
         }
         public static bool ValidateUserName(string username)
         {
-            string pattern = "(?=.*?[a - z])(?=.*?[A - Z])(?=.*?[0 - 9])";
-            return Regex.Match(pattern, username).Success;
+            string pattern1 = "^[A-Za-z][A-Za-z0-9_]{7,29}$";
+            string pattern = "^[a-zA-Z0-9]([.-](?![.-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$";
+            return Regex.Match(username, pattern1).Success;
         }
         public static bool ValidatePassword(string password)
         {
             string pattern = "(?=.*?[a - z])(?=.*?[A - Z])(?=.*?[0 - 9])";
-            return Regex.Match(pattern, password).Success;
+            return Regex.Match(password, pattern).Success;
         }
 
         public static Client CreateClientInstance(string FirstName, string LastName, int PhoneNumber, string Email, string UserName, string Password)

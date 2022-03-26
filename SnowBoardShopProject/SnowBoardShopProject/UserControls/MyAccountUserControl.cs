@@ -106,35 +106,51 @@ namespace SnowBoardShopProject.Models
 
         private void saveButton1_Click_1(object sender, EventArgs e)
         {
-            if (User.IsAdmin(LoginForm.ThisDbClient))
+            try
             {
-                var client = User.GetInfo((int)clientIdComboBox1.SelectedItem);
-                client.FirstName = FirstNametextBox3.Text;
-                client.LastName = LastNametextBox4.Text;
-                client.Email = EmailtextBox6.Text;
-                client.PhoneNumber = int.Parse(PhoneNumbertextBox5.Text);
-                client.UserName = UserNametextBox1.Text;
-                client.Password = PasswordtextBox1.Text;
-                client.Budget = int.Parse(BudgettextBox1.Text);
+                if(FirstNametextBox3.Text == "" || LastNametextBox4.Text == "" || EmailtextBox6.Text == "" || PhoneNumbertextBox5.Text == "" || UserNametextBox1.Text == "" || PasswordtextBox1.Text == "" || BudgettextBox1.Text == "")
+                {
+                    throw new Exception();
+                }
+                else
+                {
+                    if (User.IsAdmin(LoginForm.ThisDbClient))
+                    {
+                        var client = User.GetInfo((int)clientIdComboBox1.SelectedItem);
+                        client.FirstName = FirstNametextBox3.Text;
+                        client.LastName = LastNametextBox4.Text;
+                        client.Email = EmailtextBox6.Text;
+                        client.PhoneNumber = int.Parse(PhoneNumbertextBox5.Text);
+                        client.UserName = UserNametextBox1.Text;
+                        client.Password = PasswordtextBox1.Text;
+                        client.Budget = int.Parse(BudgettextBox1.Text);
 
-                client.Save();
-                this.Dispose();
+                        client.Save();
+                        this.Dispose();
+                    }
+                    else
+                    {
+                        var client = User.GetInfo(LoginForm.ThisDbClient.Id);
+                        client.FirstName = FirstNametextBox3.Text;
+                        client.LastName = LastNametextBox4.Text;
+                        client.Email = EmailtextBox6.Text;
+                        client.PhoneNumber = int.Parse(PhoneNumbertextBox5.Text);
+                        client.UserName = UserNametextBox1.Text;
+                        client.Password = PasswordtextBox1.Text;
+                        client.Budget = int.Parse(BudgettextBox1.Text);
+
+                        client.Save();
+                        MessageBox.Show("Saved");
+                        this.Dispose();
+                    }
+                }
             }
-            else
+            catch (Exception)
             {
-                var client = User.GetInfo(LoginForm.ThisDbClient.Id);
-                client.FirstName = FirstNametextBox3.Text;
-                client.LastName = LastNametextBox4.Text;
-                client.Email = EmailtextBox6.Text;
-                client.PhoneNumber = int.Parse(PhoneNumbertextBox5.Text);
-                client.UserName = UserNametextBox1.Text;
-                client.Password = PasswordtextBox1.Text;
-                client.Budget = int.Parse(BudgettextBox1.Text);
 
-                client.Save();
-                MessageBox.Show("Saved");
-                this.Dispose();
+                MessageBox.Show("there are some inputs with empty value. please try again ");
             }
+            
         }
 
         private void MyAccountUserControl_Load(object sender, EventArgs e)

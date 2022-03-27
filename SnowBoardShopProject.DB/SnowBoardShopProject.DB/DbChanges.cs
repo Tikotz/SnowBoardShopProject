@@ -32,6 +32,7 @@ namespace SnowBoardShopProject.DB
         {
             using (var db = new SnowBoardShopContext())
             {
+                db.Update(User.ThisClient);
                 db.SaveChanges();
             }
         }

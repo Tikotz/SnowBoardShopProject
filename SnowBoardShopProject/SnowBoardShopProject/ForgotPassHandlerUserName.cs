@@ -6,18 +6,18 @@ namespace SnowBoardShopProject.DB
 {
     class ForgotPassHandlerUserName : ForggotPassHendler
     {
-        public override bool HendleRequest(string request)
+        public override bool StepOne(string userName)
         {
             using (var db = new SnowBoardShopContext())
             {
                 var Clients = db.Clients.Select(c => c).ToList();
                 foreach (var Cl in Clients)
                 {
-                    if (request == Cl.UserName)
+                    if (userName == Cl.UserName)
                     {
                         return true;
                     }
-                    else if (request == "")
+                    else if (userName == "")
                     {
                         MessageBox.Show("Enter a UserName");
                         return false;
@@ -25,11 +25,38 @@ namespace SnowBoardShopProject.DB
                     
                     if(Next != null)
                     {
-                        Next.HendleRequest(request);
+                        Next.StepTwo(userName);
                     }
                 }
                 return false;
             }
+        }
+        public override bool StepTwo(string username)
+        {
+            using (var db = new SnowBoardShopContext())
+            {
+                var Clients = db.Clients.Select(c => c).ToList();
+                foreach (var Cl in Clients)
+                {
+                    if (username == Cl.UserName)
+                    {
+                        return true;
+                    }
+                    else if (username != Cl.UserName)
+                    {
+                        return false;
+                    }
+                    if (Next != null)
+                    {
+                        Next.End(username);
+                    }
+                }
+                return false;
+            }
+        }
+        public override bool End(string username)
+        {
+            return false;
         }
     }
 }

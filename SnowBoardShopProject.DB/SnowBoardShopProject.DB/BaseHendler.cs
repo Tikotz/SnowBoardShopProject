@@ -8,8 +8,12 @@
             this.Next = next;
         }
 
-        public abstract bool HendleRequest(string username);
-        //public abstract void HendleRequest(string Email);
+        public abstract bool StepOne(string username);
+        public abstract bool StepTwo(string username);
+
+        public abstract bool End(string username);
+
+        //public abstract bool HendleRequest(string Email);
 
     }
 }

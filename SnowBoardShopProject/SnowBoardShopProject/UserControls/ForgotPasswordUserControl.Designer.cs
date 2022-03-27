@@ -68,7 +68,7 @@
             this.getPaaawordbutton1.Location = new System.Drawing.Point(43, 116);
             this.getPaaawordbutton1.Name = "getPaaawordbutton1";
             this.getPaaawordbutton1.Size = new System.Drawing.Size(144, 34);
-            this.getPaaawordbutton1.TabIndex = 4;
+            this.getPaaawordbutton1.TabIndex = 3;
             this.getPaaawordbutton1.Text = "Get Password";
             this.getPaaawordbutton1.UseVisualStyleBackColor = false;
             this.getPaaawordbutton1.Click += new System.EventHandler(this.getPaaawordbutton1_Click);
@@ -78,14 +78,14 @@
             this.gmailTextBox1.Location = new System.Drawing.Point(184, 63);
             this.gmailTextBox1.Name = "gmailTextBox1";
             this.gmailTextBox1.Size = new System.Drawing.Size(232, 31);
-            this.gmailTextBox1.TabIndex = 5;
+            this.gmailTextBox1.TabIndex = 2;
             // 
             // UsernameTextBox2
             // 
             this.UsernameTextBox2.Location = new System.Drawing.Point(184, 16);
             this.UsernameTextBox2.Name = "UsernameTextBox2";
             this.UsernameTextBox2.Size = new System.Drawing.Size(232, 31);
-            this.UsernameTextBox2.TabIndex = 7;
+            this.UsernameTextBox2.TabIndex = 1;
             // 
             // userNameLabel1
             // 

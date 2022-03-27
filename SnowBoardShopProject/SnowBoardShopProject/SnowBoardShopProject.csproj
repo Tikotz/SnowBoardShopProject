@@ -23,7 +23,6 @@
 		</PackageReference>
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\..\.net\SnowBoardShopProject.DB\SnowBoardShopProject.DB\SnowBoardShopProject.DB.csproj" />
 	  <ProjectReference Include="..\..\SnowBoardShopProject.DB\SnowBoardShopProject.DB\SnowBoardShopProject.DB.csproj" />
 	</ItemGroup>
 

@@ -19,38 +19,34 @@ namespace SnowBoardShopProject
         private void getPaaawordbutton1_Click(object sender, EventArgs e)
         {
             ForggotPassHendler userName = new ForgotPassHandlerUserName();
-            ForggotPassHendler userName2 = new ForgotPassHandlerUserName2();
 
 
             ForggotPassHendler Email = new ForgotPassHandlerEmail();
-            ForggotPassHendler Email2 = new ForgotPassHandlerEmail2();
 
 
-            ForggotPassHendler End = new ForgotPassHandlerEnd();
 
 
-            userName.SetNext(userName2);
-            userName2.SetNext(End);
-            Email.SetNext(Email2);
-            Email2.SetNext(End);
-            End.SetNext(null);
+            userName.SetNext(Email);
+            Email.SetNext(null);
 
 
             //here i use "Chain of responsibility" to chack what is missing in the inputs from the "Forgot PasswordUserControl" and Hendeling the situation.
-            if (!userName.HendleRequest(UsernameTextBox2.Text))
+            if (!userName.StepOne(UsernameTextBox2.Text))
             {
+                MessageBox.Show("username does NOT exist");
                 return;
             }
-            else if (!Email.HendleRequest(gmailTextBox1.Text))
+            else if (!Email.StepOne(gmailTextBox1.Text))
             {
-                return ;
+                MessageBox.Show("Email does NOT exist");
+                return;
             }
             else
             {
 
             SendAccountDetailsThroughEmail();
 
-            MessageBox.Show("Chack your email !");
+            MessageBox.Show("Email is sent. Chack your email ! ");
 
             LoginForm loginForm = new LoginForm();
             this.Hide();
@@ -71,7 +67,7 @@ namespace SnowBoardShopProject
                 var subject = "ForgotPassword";
                 var password = LoginForm.ThisDbClient.GetPassword(UsernameTextBox2.Text);
                 var body = $"your password is: {password}";
-                string from = "o*******@*****.com";
+                string from = "o**********@******.com";
                 MailMessage mail = new MailMessage(from, gmailTextBox1.Text);
                 using (SmtpClient smtpclient = new SmtpClient())
                 {
@@ -86,8 +82,8 @@ namespace SnowBoardShopProject
                     smtpclient.Credentials = new System.Net.NetworkCredential()
 
                     {
-                        UserName = "o********@*****.com",
-                        Password = "************"
+                        UserName = "o**********@******.com",
+                        Password = "****************"
                     };
                     smtpclient.Send(mail);
                 }

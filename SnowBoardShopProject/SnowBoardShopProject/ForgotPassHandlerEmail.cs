@@ -6,22 +6,22 @@ namespace SnowBoardShopProject
 {
     class ForgotPassHandlerEmail : ForggotPassHendler
     {
-        public override bool HendleRequest(string request)
+        public override bool StepOne(string email)
         {
             using (var db = new SnowBoardShopContext())
             {
                 var Clients = db.Clients.Select(c => c).ToList();
                 foreach (var Cl in Clients)
                 {
-                    if (request == Cl.Email)
+                    if (email == Cl.Email)
                     {
                         if (Next != null)
                         {
-                            Next.HendleRequest(request);
+                            Next.StepTwo(email);
                         }
                         return true;
                     }
-                    else if (request == "")
+                    else if (email == "")
                     {
                         MessageBox.Show("Enter Your Email");
                         return false;
@@ -29,7 +29,7 @@ namespace SnowBoardShopProject
                     
                     if(Next != null)
                     {
-                        Next.HendleRequest(request);
+                        Next.End(email);
                         return false;
                     }
                 }
@@ -37,5 +37,38 @@ namespace SnowBoardShopProject
 
             }
         }
+        public override bool StepTwo(string email)
+        {
+            using (var db = new SnowBoardShopContext())
+            {
+                var Clients = db.Clients.Select(c => c).ToList();
+                foreach (var Cl in Clients)
+                {
+                    if (email == Cl.Email)
+                    {
+                        if (Next != null)
+                        {
+                            Next.End(email);
+                        }
+                        return true;
+                    }
+                    else if (email != Cl.Email)
+                    {
+                        return false;
+                    }
+                    if (Next != null)
+                    {
+                        Next.End(email);
+                    }
+                }
+                return false;
+            }
+        }
+
+        public override bool End(string username)
+        {
+            return false;
+        }
+
     }
 }
